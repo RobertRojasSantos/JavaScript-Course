@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero Automático - Robert Bank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="particulas-fondo">
+        <div class="particula"></div>
+        <div class="particula"></div>
+        <div class="particula"></div>
+    </div>
+
+    <div class="cajero-contenedor">
+        <div id="cajero-alert-toast" class="alert-toast oculto-toast" onclick="ocultarAlerta()">
+            <div class="alert-toast-icono" id="alert-toast-icono">!</div>
+            <div class="alert-toast-contenido">
+                <h5 id="alert-toast-titulo">Aviso del Sistema</h5>
+                <p id="alert-toast-mensaje">Mensaje de error.</p>
+            </div>
+        </div>
+
+        <div class="cajero-cabecera">
+            <div class="logo">RobertBank</div>
+            <button id="btn-regresar-menu" class="btn-regresar oculto">Regresar</button>
+        </div>
+
+        <div id="pantalla-dni" class="pantalla">
+            <div class="tarjeta-bancaria-visual">
+                <div class="tarjeta-chip"></div>
+                <div class="tarjeta-numero" id="tarjeta-numero-ref">•••• ••••</div>
+                <div class="tarjeta-info">
+                    <div class="tarjeta-titular">CLIENTE EXCLUSIVO</div>
+                    <div class="tarjeta-marca">RobertBank</div>
+                </div>
+            </div>
+
+            <h2>Bienvenido</h2>
+            <p>Ingresa tu número de DNI para comenzar</p>
+            <input type="text" id="input-dni" placeholder="DNI (8 dígitos)" maxlength="8">
+            <button id="btn-dni-siguiente" class="btn-primario">Siguiente</button>
+        </div>
+
+        <div id="pantalla-clave" class="pantalla oculto">
+            <h2>Ingrese su clave de cajero</h2>
+            <p>Y presione el botón para empezar a usar el cajero</p>
+            <input type="password" id="input-clave" placeholder="Clave cajero" maxlength="4">
+            <button id="btn-clave-ingresar" class="btn-primario">Ingresar</button>
+        </div>
+
+        <div id="pantalla-menu" class="pantalla oculto">
+            <h3 id="saludo-usuario">Bienvenido</h3>
+            <p>¿Qué deseas hacer?</p>
+            <div class="menu-cuadricula">
+                <button id="btn-menu-saldo" class="btn-opcion">Consultar Saldo</button>
+                <button id="btn-menu-depositar" class="btn-opcion">Ingresar Monto</button>
+                <button id="btn-menu-retirar" class="btn-opcion">Retirar Monto</button>
+            </div>
+            <button id="btn-sacar-tarjeta" class="btn-peligro">Sacar Tarjeta</button>
+        </div>
+
+        <div id="pantalla-saldo" class="pantalla oculto">
+            <h2>Saldo disponible:</h2>
+            <p class="subtexto">Ahorro soles: *******1234</p>
+            <div class="monto-grande" id="texto-saldo-disponible">S/ 0,00</div>
+        </div>
+
+        <div id="pantalla-depositar" class="pantalla oculto">
+            <h2>Ingresa el monto a depositar</h2>
+            <input type="number" id="input-monto-deposito" placeholder="S/ 0,00" min="1">
+            <button id="btn-ejecutar-deposito" class="btn-primario">Depositar</button>
+        </div>
+
+        <div id="pantalla-retirar" class="pantalla oculto">
+            <h2>Elige el monto para retirar</h2>
+            <div class="retiro-cuadricula">
+                <button class="btn-rapido" value="20">S/ 20</button>
+                <button class="btn-rapido" value="50">S/ 50</button>
+                <button class="btn-rapido" value="100">S/ 100</button>
+                <button class="btn-rapido" value="500">S/ 500</button>
+                <button class="btn-rapido" value="1000">S/ 1000</button>
+                <button id="btn-otro-monto" class="btn-rapido-secundario">Otro monto</button>
+            </div>
+            
+            <div id="zona-otro-monto" class="oculto">
+                <input type="number" id="input-monto-retiro" placeholder="S/ 0,00" min="1">
+                <button id="btn-ejecutar-retiro-manual" class="btn-primario">Confirmar Retiro</button>
+            </div>
+        </div>
+
+        <div id="pantalla-carga" class="pantalla oculto">
+            <h2 id="texto-carga">Procesando movimiento...</h2>
+            <div class="spinner-contenedor">
+                <div class="spinner"></div>
+                <div class="spinner-pulso"></div>
+            </div>
+        </div>
+
+        <div id="pantalla-exito" class="pantalla oculto">
+            <h2 id="texto-exito">Movimiento realizado con éxito.</h2>
+            <div class="contenedor-check">
+                <div class="circulo-check">
+                    <span class="check-icono">✓</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
